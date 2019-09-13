@@ -27,13 +27,11 @@ This script automatically sets up a CDH cluster on the public cloud on a single 
 
 As this cluster is meant to be used for demos, experimenting, training, and workshops, it doesn't setup Kerberos and TLS.
 
-== Instructions
-
-== Manual setup
+== Setup instructions
 
 . Provision one VM for the cluster setup
 
-* Create a Centos 7 VM with at least 16 vCPUs/ 64 GB RAM. Choose the plain vanilla Centos image, not a cloudera-centos image.
+* Create a Centos 7 VM with at least 16 vCPUs/ 64 GB RAM (ex. m5a.4xlarge). Choose the plain vanilla Centos image, not a cloudera-centos image.
 +
 NOTE: This is a vanilla Centos 7 AMI. No other prerequistes are necessary. All the required software will be installed by the setup process.
 * OS disk size: at least *100 GB*.
@@ -105,7 +103,7 @@ _Example_:
 [source,shell]
 ----
 chmod +x setup.sh
-./setup.sh aws cdsw_template.json /dev/sdc
+sudo ./setup.sh aws cdsw_template.json /dev/nvme1n1
 ----
 --
 
@@ -144,7 +142,7 @@ nvme0n1     259:1    0  100G  0 disk
 +-nvme0n1p1 259:2    0  100G  0 part /
 nvme1n1     259:0    0 1000G  0 disk
 
-$ ./setup.sh aws cdsw_template.json /dev/nvme1n1
+$ sudo ./setup.sh aws cdsw_template.json /dev/nvme1n1
 ----
 
 ==== Azure Standard D8s v3 or Standard D16s v3
@@ -162,7 +160,7 @@ sdb      8:16   0   56G  0 disk
 sdc      8:32   0 1000G  0 disk
 sr0     11:0    1  628K  0 rom
 
-$ ./setup.sh azure cdsw_template.json /dev/sdc
+$ sudo ./setup.sh azure cdsw_template.json /dev/sdc
 ----
 
 ==== GCP n1-standard-8 or n1-standard-16
@@ -175,6 +173,6 @@ sda      8:0    0  100G  0 disk
 └─sda1   8:1    0  100G  0 part /
 sdb      8:16   0 1000G  0 disk 
 
-$ ./setup.sh gcp cdsw_template.json /dev/sdb
+$ sudo ./setup.sh gcp cdsw_template.json /dev/sdb
 ----
 
