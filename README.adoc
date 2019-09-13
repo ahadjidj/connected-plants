@@ -1,6 +1,27 @@
-= Single Node CONNECTED PLANTS CDH Cluster
+= Event Streaming Architecture for Industry 4.0 using Apache NiFi, MiNiFi, Kafka and Flink
 
-This script automatically sets up a CDH cluster on the public cloud on a single VM with the following 16 services: 
+This demo show how the Cloudera Data Flow platform can be used to build an end-to-end Industrial IOT architecture for real-time data collection and processing.
+It's based on a previous blog I published for FreeCodeCamp some time ago and the excellent implementation/automation scripts from https://github.com/fabiog1901[Fabio]:
+
+. Blog: https://medium.com/free-code-camp/building-an-iiot-system-using-apache-nifi-mqtt-and-raspberry-pi-ce1d6ed565bc
+. Implementation: https://github.com/fabiog1901/IoT-predictive-maintenance
+. Automation script: https://github.com/fabiog1901/OneNodeCDHCluster
+
+== Use case
+New use cases under the Industry 4.0 umbrella are playing a key role in improving factory operations, process optimization, cost reduction and quality improvement. This project implement an event streaming architecture to streamline the information flow all the way from the factory to the main data center.  Building such a streaming architecture enables a manufacturer to react faster to critical operational events. However, it presents two main challenges:
+
+. Data acquisition in real time: data should be collected regardless of its location or access challenges are. It is commonplace to ingest data from hundreds of heterogeneous data sources (ERP, MES, Sensors, maintenance systems, etc).
+. Event processing in real time: events collected from different parts of the organization should be combined into actionable insights in real time. This is extremely challenging in a context where events can be lost or delayed.
+
+This demo shows how Apache NiFi and MiNiFi can be used to collect a wide range of data sources in real-time, connecting the industrial and information worlds. Then, it shows how Apache Flink’s unique features enables us to make sense of this data. For instance, it shows how Flink’s time management such Event Time mode, late arrival handling and watermark mechanism can be used to address the challenge of processing IoT data originating from geographically distributed plants.
+
+The high level architecture is explained in the following schema.
+
+image::images/architecture.png[width=800]
+
+== Installation
+
+This script automatically sets up a CDH cluster on the public cloud on a single VM with the following 17 services:
 
 [%autowidth,cols="1a,1a,1a,1a,1a",options="header"]
 |====
@@ -9,8 +30,9 @@ This script automatically sets up a CDH cluster on the public cloud on a single 
 * EFM
 |* NiFi
 * NiFi Registry
-* NiFi CA Service`
+* NiFi CA Service
 |* Kafka
+* Flink
 * Schema Registry
 * Streams Messaging Manager
 |* ZooKeeper
