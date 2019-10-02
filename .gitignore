@@ -1,2 +1,5 @@
 # IDEA config files
 .idea/
+*.iml
+*/target
+*dependency-reduced-pom.xml
