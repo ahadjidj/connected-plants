@@ -5,8 +5,8 @@
   "doc": "This is a sample sensor reading",
   "fields": [
     {
-      "name": "sensor_id",
-      "doc": "Sensor identification number.",
+      "name": "machine_id",
+      "doc": "Machine identification number.",
       "type": "int"
     },
     {

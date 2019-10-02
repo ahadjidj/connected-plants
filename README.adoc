@@ -1,6 +1,6 @@
 = Event Streaming Architecture for Industry 4.0 using Apache NiFi, MiNiFi, Kafka and Flink
 
-This demo show how the Cloudera Data Flow platform can be used to build an end-to-end Industrial IOT architecture for real-time data collection and processing.
+This demo shows how the Cloudera Data Flow platform can be used to build an end-to-end Industrial IOT architecture for real-time data collection and processing.
 It's based on a previous blog I published for FreeCodeCamp some time ago and the excellent implementation/automation scripts from https://github.com/fabiog1901[Fabio]:
 
 . Blog: https://medium.com/free-code-camp/building-an-iiot-system-using-apache-nifi-mqtt-and-raspberry-pi-ce1d6ed565bc

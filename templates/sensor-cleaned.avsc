@@ -1,0 +1,80 @@
+{
+  "type": "record",
+  "name": "SensorCleaned",
+  "namespace": "com.cloudera.example",
+  "doc": "This is a sample sensor reading after cleaning",
+  "fields": [
+    {
+      "name": "machine_id",
+      "doc": "Machine identification number.",
+      "type": "int"
+    },
+    {
+      "name": "plant_id",
+      "doc": "Plant identification number.",
+      "type": "int"
+    },
+    {
+      "name": "sensor_ts",
+      "doc": "Timestamp of the collected readings.",
+      "type": "long"
+    },
+    {
+      "name": "is_healthy",
+      "doc": "Flag indicating health (healthy == 1)",
+      "type": "int"
+    },
+    {
+      "name": "response",
+      "doc": "response record",
+      "type": {
+        "type": "record",
+        "name": "CDSWResponse",
+        "namespace": "com.cloudera.example",
+        "doc": "This is a CDSW Model response",
+        "fields": [
+          {
+            "name": "result",
+            "doc": "Result",
+            "type": "int"
+          }
+        ]
+      }
+    },
+    {
+      "name": "speed",
+      "doc": "Reading #0.",
+      "type": "int"
+    },
+    {
+      "name": "pressure",
+      "doc": "Reading #1.",
+      "type": "int"
+    },
+    {
+      "name": "error",
+      "doc": "Reading #2. Error == 1 if Reading #2 > 50",
+      "type": "int"
+    },
+    {
+      "name": "vibration",
+      "doc": "Reading #3.",
+      "type": "int"
+    },
+    {
+      "name": "noise",
+      "doc": "Reading #4.",
+      "type": "int"
+    },
+    {
+      "name": "temperature",
+      "doc": "Reading #5.",
+      "type": "int"
+    },
+    {
+      "name": "batch_size",
+      "doc": "Reading #6 if plant 1 or 3, Reading #10 if plant 2",
+      "type": "int"
+    }
+  ]
+}
