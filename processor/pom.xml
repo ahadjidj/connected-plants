@@ -29,7 +29,8 @@ under the License.
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<flink.version>1.9.0</flink.version>
+		<flink.version>1.9.0-${cdh.version}-${flink.gbn}</flink.version>
+		<flink.gbn>1489661</flink.gbn>
 		<java.version>1.8</java.version>
 		<cdh.version>cdh6.3.0</cdh.version>
 		<kudu.version>1.10.0-${cdh.version}</kudu.version>
@@ -47,6 +48,10 @@ under the License.
 			<id>cloudera-local</id>
 			<url>http://maven.jenkins.cloudera.com:8081/artifactory/libs-release-local</url>
 		</repository>
+		<repository>
+			<id>cloudera-build</id>
+			<url>http://cloudera-build-us-west-1.vpc.cloudera.com/s3/build/${flink.gbn}/csa/1.x/maven-repository/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -57,6 +62,12 @@ under the License.
 			<artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
 			<version>${flink.version}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
+			<version>${flink.version}</version>
 		</dependency>
 
 		<!-- Add connector dependencies here. They must be in the default scope (compile). -->

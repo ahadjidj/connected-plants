@@ -1,5 +1,6 @@
 package com.cloudera.streaming.examples.flink.iot;
 
+import com.cloudera.streaming.examples.flink.iot.types.SensorReading;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunction;
 import org.apache.flink.streaming.api.watermark.Watermark;

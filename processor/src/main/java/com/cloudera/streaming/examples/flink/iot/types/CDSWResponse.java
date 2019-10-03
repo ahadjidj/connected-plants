@@ -1,4 +1,4 @@
-package com.cloudera.streaming.examples.flink.iot;
+package com.cloudera.streaming.examples.flink.iot.types;
 
 public class CDSWResponse {
     public CDSWResponse(){}
