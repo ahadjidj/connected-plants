@@ -54,7 +54,7 @@
     {
       "name": "error",
       "doc": "Reading #2. Error == 1 if Reading #2 > 50",
-      "type": "int"
+      "type": "boolean"
     },
     {
       "name": "vibration",
