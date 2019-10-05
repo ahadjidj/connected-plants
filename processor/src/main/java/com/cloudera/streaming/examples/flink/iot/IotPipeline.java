@@ -38,6 +38,7 @@ public class IotPipeline {
         System.out.println(kuduConnection.listTables());
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(4); // Speeds up startup, for demo purposes
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
         final OutputTag<Tuple2<Integer, Integer>> lateOutputTag = new OutputTag<Tuple2<Integer, Integer>>("late-data"){};
 
@@ -94,11 +95,10 @@ public class IotPipeline {
         errors.print();
 
         numErrors.addSink(kafkaSink);
+        numErrors.addSink(new KuduSink());
         numErrors.printToErr();
 
-
-
-        env.execute();
+        env.execute("IotProcessor");
     }
 
 }
